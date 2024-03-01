@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=80mm, initial-scale=1.0"> <!-- Cambiar el ancho de la vista para el papel de 58mm -->
+    <title>RECIBO</title>
+    <style>
+     body {
+            font-family: arial, Helvetica, sans-serif;
+            margin: 0;
+            font-size: 3mm;
+            text-align: CENTER; /* Centrar todo el contenido */
+        }
+
+        #thermal-pos {
+           
+            margin: none;
+            max-width: 80mm;
+            max-height: 100mm;
+            
+        }
+
+        .label {
+            margin: 0;
+            margin-left: 0.5mm;
+        }
+
+        .table {
+          
+            border-collapse: collapse; /* Elimina el espacio entre celdas */
+            border-collapse: collapse;
+            border-spacing: 0;
+            
+        }
+
+        .table-header h2 {
+            margin: 0;
+            padding-left: 0.5mm;
+            
+        }
+        .table-footer.top-line td,
+        
+        .table-footer {
+            margin-left: 0.5mm;
+        }
+        .table-footer h2 {
+            margin: 0; /* Asegurarte de que no haya margen dentro de los elementos h2 */
+            padding: 1mm 0; /* Ajustar el padding superior e inferior */
+        }
+        .table-footer h4 {
+            margin: 0; /* Asegurarte de que no haya margen dentro de los elementos h2 */
+            padding: 1mm 0; /* Ajustar el padding superior e inferior */
+        }
+        .saldo-text {
+            margin: 0;
+            margin-left: 0.1mm;
+        }
+
+        .policy {
+            margin-left: 0.5mm;
+        }
+
+      /* Agrega el estilo para eliminar el espacio vertical en las celdas de las filas de la tabla */
+      .table-footer td {
+          padding: 0;
+          line-height: 1;
+      }
+      .venta {
+        margin: 0;
+        padding: 00;
+      }
+     .nombre_cliente {
+        margin: 0;
+        padding: 00;
+      }
+    .vendedor {
+        margin: 0;
+    }
+    .fecha_recepcion {
+        margin: 0;
+    }
+    
+    .info-tienda {
+        margin: 0;
+    }
+    .m-0 {
+        margin: 0;
+    }
+    .direccion {
+        margin: 0;
+        
+    }
+  
+
+    </style>
+  </head>
+  <body onload="window.print()" onfocus="window.close()">
+
+    <script>
+        // Obtener los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Obtener los valores de los parámetros
+        var venta = params.has('venta') ? params.get('venta') : "---";
+        var nombre_cliente = params.has('nombre_cliente') ? params.get('nombre_cliente') : "---";
+        var cedula_cliente = params.has('cedula_cliente') ? params.get('cedula_cliente') : "---";
+        var direccion_cliente = params.has('direccion_cliente') ? params.get('direccion_cliente') : "---";
+        var telefono_cliente = params.has('telefono_cliente') ? params.get('telefono_cliente') : "---";
+        var vendedor = params.has('vendedor') ? params.get('vendedor') : "---";
+        var fecha = params.has('fecha') ? params.get('fecha') : "dd/mm/aaaa hh:mm:ss";
+        var total = params.has('total') ? params.get('total') : "0.00";
+        var subtotal = params.has('subtotal') ? params.get('subtotal') : "0.00";
+        var descuento = params.has('descuento') ? params.get('descuento') : "0.00";
+
+
+    </script>
+    <div id="thermal-pos">
+        <div class="label">
+             <title>Encabezado con Logo y Texto</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #ffffff; /* Color de fondo del encabezado */
+            color: black; /* Color del texto en el encabezado */
+            padding: 10px; /* Espaciado interno del encabezado */
+            display: flex; /* Uso de flexbox para diseño flexible */
+            justify-content: space-between; /* Espacio entre los elementos flexibles */
+            align-items: center; /* Centrar verticalmente los elementos */
+        }
+
+        #logo {
+            width: 25%; /* Ancho del logo (1/4 del ancho) */
+            height: auto; /* Altura ajustada automáticamente */
+        }
+
+        #info {
+            width: 75%; /* Ancho del texto (3/4 del ancho) */
+            text-align: RIGHT; /* Alinear el texto a la izquierda */
+        }
+
+        .info-tienda {
+            margin: 0; /* Eliminar el margen predeterminado del párrafo */
+        }
+         .table-item {
+    border-bottom: 0.5px dotted black;
+      }
+      .right-align {
+    text-align: right;
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="logo">
+            <!-- Aquí colocarías tu código SVG o una etiqueta img con la ruta del logo -->
+            <!-- Ejemplo con un SVG de ejemplo -->
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                width="100%" viewBox="0 0 1028.000000 1004.000000" preserveAspectRatio="xMidYMid meet">
+                <<g transform="translate(0.000000,1004.000000) scale(0.0400000,-0.0400000)"
+                fill="#000000" stroke="none">
+                <path d="M12915 24054 c-206 -8 -752 -61 -1015 -99 -241 -35 -721 -125 -900
+-170 -727 -182 -1224 -348 -1835 -615 -320 -140 -677 -320 -1030 -520 -28 -16
+-197 -118 -309 -185 -61 -38 -388 -255 -481 -320 -149 -104 -584 -433 -610
+-461 -5 -6 -53 -46 -105 -90 -90 -75 -236 -201 -271 -234 -9 -8 -68 -62 -130
+-120 -232 -215 -560 -552 -749 -770 -45 -52 -104 -120 -130 -150 -26 -30 -60
+-71 -76 -90 -16 -19 -31 -37 -34 -40 -19 -16 -302 -387 -416 -545 -71 -98
+-318 -467 -370 -552 -153 -252 -235 -396 -367 -638 -65 -119 -291 -585 -342
+-705 -15 -36 -35 -83 -45 -105 -25 -59 -89 -214 -105 -255 -37 -97 -88 -229
+-101 -260 -61 -154 -251 -775 -309 -1010 -14 -58 -32 -130 -40 -160 -24 -96
+-52 -222 -73 -325 -43 -211 -47 -234 -107 -610 -24 -150 -44 -314 -55 -440 -5
+-66 -12 -131 -15 -145 -3 -14 -12 -142 -21 -285 -30 -476 -18 -1241 26 -1653
+61 -562 145 -1068 245 -1462 7 -30 30 -120 50 -200 20 -80 42 -163 50 -185 7
+-22 23 -76 35 -120 23 -85 37 -130 100 -320 83 -255 186 -540 245 -680 57
+-135 139 -325 150 -350 149 -324 354 -728 444 -875 11 -19 24 -42 28 -50 11
+-27 214 -362 281 -465 134 -208 247 -371 372 -540 30 -40 64 -86 75 -101 41
+-57 230 -299 240 -309 7 -5 27 -30 45 -55 19 -25 52 -65 74 -90 23 -25 54 -61
+70 -80 347 -409 737 -794 1250 -1233 104 -90 370 -295 590 -457 190 -139 611
+-415 771 -504 11 -6 38 -23 60 -37 22 -14 76 -45 120 -69 44 -24 103 -57 130
+-73 71 -42 489 -254 620 -315 189 -86 224 -102 228 -102 3 0 43 -17 89 -38 45
+-22 101 -46 123 -55 22 -8 87 -34 145 -57 58 -23 128 -51 155 -60 287 -105
+362 -130 570 -196 101 -32 234 -72 295 -88 14 -4 59 -16 100 -27 134 -36 384
+-99 430 -109 25 -5 99 -21 165 -35 66 -14 145 -30 175 -35 30 -5 87 -16 125
+-24 219 -46 644 -101 1065 -138 214 -19 316 -21 805 -22 496 0 588 3 810 22
+437 39 787 84 1095 143 256 49 431 86 485 101 22 6 56 14 75 18 79 17 335 85
+475 127 83 24 164 48 180 53 138 40 498 163 630 214 152 60 251 99 280 112 17
+7 80 34 140 59 106 46 135 59 325 148 205 96 503 248 620 317 28 16 53 30 55
+30 5 0 328 191 445 263 89 55 346 226 440 292 30 21 69 48 85 59 51 35 459
+343 480 362 11 11 56 48 100 84 44 35 91 74 105 86 14 12 70 62 125 110 336
+295 676 633 946 938 19 21 39 44 46 51 6 6 33 38 61 71 27 32 60 70 73 85 35
+36 175 210 237 293 29 39 57 73 61 76 8 5 65 82 235 320 141 198 277 402 360
+540 15 25 45 74 68 110 68 109 78 124 85 140 4 8 38 68 75 133 119 205 307
+579 468 932 35 77 128 301 165 395 20 52 43 111 51 130 126 312 317 949 419
+1395 120 526 200 1062 242 1630 35 459 19 1420 -28 1750 -5 39 -14 115 -19
+170 -14 159 -82 601 -126 825 -30 151 -120 546 -144 630 -10 36 -42 148 -71
+250 -28 102 -72 246 -96 320 -25 74 -49 149 -53 165 -39 142 -267 720 -373
+945 -19 41 -49 106 -67 144 -77 167 -265 536 -329 648 -10 18 -38 67 -61 108
+-142 251 -400 653 -579 900 -57 80 -120 168 -140 195 -75 105 -229 299 -370
+464 -25 30 -59 71 -76 90 -16 20 -32 38 -35 41 -3 3 -39 43 -80 90 -246 278
+-600 633 -859 860 -40 36 -99 88 -130 116 -68 63 -109 97 -321 264 -248 197
+-318 250 -324 250 -4 0 -34 22 -69 49 -64 50 -127 94 -307 215 -185 123 -245
+162 -260 169 -8 4 -53 32 -100 61 -175 112 -615 357 -820 457 -115 56 -360
+170 -425 199 -27 11 -59 25 -70 30 -46 21 -113 49 -160 68 -27 11 -106 43
+-175 71 -163 66 -260 101 -455 166 -221 74 -622 197 -675 208 -14 3 -106 25
+-205 50 -200 50 -344 83 -390 90 -16 3 -88 17 -160 31 -71 15 -157 31 -190 36
+-33 4 -100 15 -150 23 -238 40 -447 66 -810 98 -188 17 -322 21 -740 23 -280
+2 -550 2 -600 0z m-3958 -6766 c6 -7 16 -42 22 -78 7 -36 21 -105 31 -155 10
+-49 26 -130 35 -180 9 -49 23 -121 30 -160 8 -38 23 -124 35 -190 11 -66 27
+-149 35 -185 7 -36 23 -117 35 -180 27 -149 38 -207 105 -555 31 -159 65 -339
+76 -400 11 -60 27 -141 34 -180 13 -63 32 -188 50 -330 9 -63 20 -43 29 50 8
+85 32 237 51 325 8 36 23 117 35 180 12 63 27 147 35 185 7 39 23 122 35 185
+11 63 30 160 41 215 41 205 48 241 54 280 3 22 12 72 20 110 8 39 31 156 50
+260 20 105 42 222 50 260 8 39 26 137 40 219 14 82 28 152 30 156 3 4 9 40 15
+81 6 40 15 78 21 86 9 10 99 13 459 13 247 0 455 -3 464 -6 15 -6 16 -244 16
+-2605 l0 -2599 -357 2 -358 3 -2 1740 c-2 1499 -5 1740 -17 1743 -18 4 -22
+-10 -36 -128 -6 -52 -18 -131 -25 -175 -7 -44 -16 -102 -19 -130 -4 -27 -13
+-93 -21 -145 -8 -52 -24 -158 -35 -235 -12 -77 -27 -180 -35 -230 -17 -109
+-50 -332 -71 -475 -30 -209 -75 -509 -99 -665 -8 -49 -23 -155 -35 -235 -11
+-80 -27 -188 -35 -240 -18 -117 -51 -332 -71 -465 -8 -55 -23 -156 -34 -225
+-11 -69 -20 -128 -20 -132 0 -7 -330 -12 -330 -5 0 4 -39 263 -49 327 -9 59
+-20 129 -66 440 -8 52 -23 158 -35 235 -12 77 -27 183 -35 235 -37 256 -102
+691 -125 840 -12 74 -25 164 -30 200 -5 36 -21 142 -35 235 -15 94 -30 199
+-35 235 -8 60 -34 235 -59 390 -5 36 -17 119 -26 185 -21 158 -23 165 -40 165
+-13 0 -15 -211 -15 -1745 l0 -1745 -355 0 -355 0 0 2598 c0 1429 3 2602 7
+2605 3 4 210 7 458 7 350 0 455 -3 462 -12z m3997 4 c6 -11 38 -196 61 -352
+21 -151 76 -511 96 -635 6 -38 15 -99 19 -135 5 -36 21 -141 35 -235 15 -93
+30 -199 35 -235 4 -36 15 -108 24 -160 20 -122 40 -250 66 -425 37 -254 51
+-349 70 -470 11 -66 28 -183 40 -260 11 -77 25 -165 30 -195 6 -30 14 -89 20
+-130 15 -115 38 -276 54 -370 8 -47 24 -148 36 -225 11 -77 27 -183 35 -235 8
+-52 22 -144 30 -205 9 -60 25 -166 36 -235 10 -69 28 -186 40 -260 11 -74 26
+-173 34 -220 8 -47 17 -115 21 -153 l6 -67 -373 2 -374 3 -3 35 c-3 43 -51
+404 -92 700 -11 74 -25 177 -31 228 l-12 92 -367 0 -367 0 -6 -65 c-3 -35 -13
+-108 -21 -162 -8 -54 -22 -152 -30 -218 -30 -229 -58 -440 -70 -525 l-12 -85
+-372 -3 c-345 -2 -372 -1 -372 15 0 9 7 58 15 107 15 94 29 190 65 431 11 77
+27 181 35 230 8 50 23 149 34 220 11 72 25 164 31 205 7 41 18 118 25 170 19
+140 58 393 76 500 12 75 48 320 59 400 5 36 21 142 35 235 15 94 31 197 35
+230 4 33 15 105 24 160 9 55 23 145 31 200 8 55 24 159 35 230 11 72 26 177
+35 235 9 58 24 159 35 225 10 66 26 170 35 230 26 183 55 377 104 690 11 72
+32 208 46 304 14 96 28 178 31 183 7 11 921 10 928 0z m1841 -67 c13 -38 31
+-99 40 -135 32 -118 53 -193 90 -330 43 -156 66 -241 89 -325 9 -33 32 -116
+51 -185 36 -130 64 -232 92 -335 8 -33 23 -87 33 -120 10 -33 25 -89 35 -125
+10 -36 23 -85 31 -110 7 -25 22 -83 34 -130 12 -47 30 -112 40 -145 10 -33 34
+-118 53 -190 83 -306 110 -403 122 -445 7 -25 28 -102 46 -172 27 -104 37
+-128 51 -128 17 0 18 67 20 1473 l3 1472 350 0 350 0 3 -2603 2 -2602 -342 2
+-341 3 -13 40 c-14 47 -72 256 -103 370 -35 131 -128 471 -182 665 -17 63 -35
+129 -39 145 -11 41 -92 339 -141 515 -22 80 -56 204 -75 275 -20 72 -44 159
+-54 195 -11 36 -28 99 -38 140 -21 78 -70 258 -101 370 -32 112 -49 174 -55
+203 -4 18 -13 27 -26 27 -20 0 -20 -11 -20 -1475 l0 -1475 -350 0 -350 0 0
+2598 c0 1429 3 2602 7 2605 4 4 155 6 336 5 l330 -3 22 -70z m3599 67 c9 -16
+70 -389 131 -812 28 -192 56 -377 70 -455 7 -44 16 -102 20 -130 3 -27 12 -90
+20 -140 8 -49 30 -200 50 -335 20 -135 42 -285 50 -335 8 -49 24 -153 35 -230
+35 -234 61 -405 100 -665 40 -258 61 -396 75 -490 14 -99 43 -288 76 -500 10
+-69 26 -170 34 -225 8 -55 24 -161 35 -235 11 -74 27 -182 36 -240 8 -58 21
+-141 29 -185 8 -44 17 -102 20 -130 3 -27 8 -60 11 -72 l4 -23 -374 0 -375 0
+-6 48 c-3 26 -12 90 -20 142 -8 52 -23 167 -35 255 -11 88 -27 205 -35 260 -7
+55 -16 125 -20 155 -3 30 -10 88 -17 128 l-11 72 -368 0 -369 0 0 -34 c0 -19
+-9 -94 -19 -168 -10 -73 -26 -191 -35 -263 -16 -120 -37 -277 -69 -500 l-13
+-90 -372 -3 c-345 -2 -372 -1 -372 15 0 9 7 58 15 107 33 204 56 351 105 691
+22 150 39 260 65 420 9 55 21 129 25 165 5 36 20 142 35 235 14 94 30 199 35
+235 5 36 20 139 35 230 15 91 31 197 36 235 5 39 13 93 18 120 5 28 12 73 16
+100 3 28 12 91 20 140 7 50 21 142 30 205 9 63 23 153 30 200 14 82 40 258 70
+460 19 134 69 458 110 725 8 50 23 155 35 235 20 143 29 201 69 450 11 69 22
+147 25 174 4 28 12 53 19 58 16 10 914 10 921 0z m-10169 -5488 c96 -33 157
+-133 170 -280 l7 -71 -63 -6 c-34 -4 -79 -7 -99 -7 -37 0 -37 1 -44 46 -15
+115 -40 153 -91 140 -26 -7 -55 -68 -55 -116 0 -58 40 -143 133 -284 121 -182
+151 -232 184 -308 24 -56 27 -75 27 -178 0 -105 -3 -121 -29 -178 -15 -34 -43
+-76 -61 -92 -41 -36 -119 -60 -193 -60 -180 0 -272 101 -288 317 -7 95 -16 87
+118 98 l76 6 11 -81 c14 -96 33 -137 69 -146 41 -11 75 14 91 66 28 96 1 168
+-147 387 -160 237 -200 343 -187 492 12 124 77 222 171 255 55 20 142 19 200
+0z m1887 -29 c10 -40 44 -255 124 -795 18 -123 48 -316 70 -448 8 -51 12 -97
+9 -102 -3 -6 -48 -10 -100 -10 -106 0 -99 -6 -110 95 -3 33 -11 88 -17 123
+l-10 62 -93 0 -93 0 -6 -27 c-3 -16 -11 -71 -16 -123 -15 -140 -6 -130 -115
+-130 -52 0 -97 4 -100 10 -3 6 1 48 10 94 8 47 19 115 24 153 6 37 22 145 36
+238 15 94 30 199 35 235 11 84 36 251 55 365 39 235 46 279 51 287 3 5 58 7
+122 6 l116 -3 8 -30z m1708 -209 l5 -239 22 64 c12 35 43 118 68 184 25 66 52
+139 60 163 22 69 27 72 126 72 48 0 90 -3 92 -7 3 -5 -18 -62 -45 -128 -28
+-66 -56 -136 -63 -155 -8 -19 -27 -66 -43 -103 l-29 -68 17 -67 c10 -37 25
+-103 34 -147 10 -44 26 -118 37 -165 31 -130 46 -194 75 -325 14 -66 30 -133
+35 -149 5 -16 9 -40 9 -53 0 -24 -1 -24 -97 -21 l-98 3 -27 115 c-15 63 -43
+180 -62 260 -19 80 -40 169 -47 199 l-12 54 -26 -59 c-25 -57 -26 -66 -31
+-314 l-5 -255 -100 0 -100 0 -3 680 c-1 374 0 686 3 693 3 9 30 12 102 10 l98
+-3 5 -239z m1898 236 c10 -7 12 -152 10 -693 l-3 -684 -102 -3 -103 -3 0 689
+c0 379 3 692 7 695 9 10 175 8 191 -1z m1546 2 c14 -6 16 -67 16 -595 l0 -588
+133 -3 132 -3 0 -95 0 -95 -235 0 -235 0 -3 680 c-1 374 0 686 3 693 5 13 158
+18 189 6z m1764 -591 l2 -593 135 0 135 0 0 -100 0 -100 -237 2 -238 3 -3 684
+c-2 541 0 686 10 693 7 4 54 7 103 6 l90 -3 3 -592z m1965 542 c4 -27 14 -90
+22 -140 8 -49 23 -152 35 -227 11 -76 29 -200 40 -275 32 -210 50 -327 70
+-453 11 -63 22 -143 26 -178 l7 -63 -99 3 -98 3 -18 105 c-9 58 -17 120 -18
+138 l0 32 -99 0 -100 0 -6 -57 c-3 -32 -11 -94 -18 -138 l-13 -80 -97 -3 -98
+-3 6 63 c4 35 10 86 15 113 9 48 37 234 80 530 12 77 27 183 36 235 8 52 21
+138 29 190 31 205 38 245 42 253 2 4 59 6 126 5 l122 -3 8 -50z"/>
+<path d="M12470 15723 c0 -5 -7 -51 -16 -103 -8 -52 -19 -131 -24 -175 -5 -44
+-16 -129 -25 -190 -36 -259 -46 -328 -65 -470 -44 -333 -72 -554 -81 -630 -5
+-44 -14 -102 -19 -128 -6 -26 -10 -52 -10 -58 0 -6 96 -8 258 -7 l257 3 -3 40
+c-1 22 -9 90 -17 150 -8 61 -24 182 -35 270 -12 88 -27 205 -35 260 -8 55 -16
+123 -20 150 -3 28 -12 93 -20 145 -8 52 -24 167 -35 255 -28 226 -50 381 -61
+443 -8 41 -14 52 -30 52 -10 0 -19 -3 -19 -7z"/>
+<path d="M17897 15618 c-21 -136 -50 -350 -71 -513 -46 -355 -57 -439 -71
+-535 -8 -58 -22 -154 -30 -215 -9 -60 -20 -148 -25 -195 -5 -47 -14 -107 -19
+-135 -5 -27 -7 -53 -5 -57 3 -5 120 -8 261 -8 l255 0 -6 53 c-8 63 -31 233
+-56 417 -11 74 -26 187 -34 250 -37 280 -57 433 -71 545 -9 66 -22 163 -30
+215 -8 52 -17 118 -20 145 -12 99 -26 145 -44 145 -15 0 -20 -19 -34 -112z"/>
+<path d="M9977 11369 c-4 -20 -24 -176 -53 -406 l-5 -43 66 0 67 0 -6 38 c-3
+20 -10 75 -16 122 -6 47 -15 112 -20 145 -5 33 -10 78 -10 100 0 50 -16 81
+-23 44z"/>
+<path d="M18837 11253 c-10 -71 -22 -162 -28 -203 -5 -41 -12 -87 -15 -102
+l-6 -28 66 0 66 0 0 35 c0 19 -6 77 -14 128 -8 50 -19 138 -26 195 -7 56 -15
+102 -19 102 -4 0 -15 -57 -24 -127z"/>
+            </svg>
+
+        </div>
+        <div id="info">
+            <!-- Aquí colocarías tu información en texto -->
+            <!-- Ejemplo de texto de información -->
+            <p class="info-tienda">
+               <b> FERRETERÍA MANA SAKILLA</b>
+                <br>
+                <b>RUC: 1727849695001</b>
+                <br>
+                <b>DIR: LUIS CORDERO Y JOSÉ MEJÍA</b>
+                <br>
+                <b>CEL: 0962248046</b>
+                <br>
+            </p>
+        </div>
+    </header>
+
+        </div>
+        <div class="label">
+        <h1>GARANTÍA DE DUCHAS</h1>
+        <br/>
+    <p class="venta"><b>CÓDIGO DE GARANTÍA: <span id="venta_id"></span></b></p>
+<p class="fecha_recepcion"><b>FECHA Y HORA: <span id="fechaR"></span></b></p>
+<span class="nombre_cliente"><b>MODELO DE DUCHA: <span id="nombre_id"></span></span></b><br>
+<span class="cedula_cliente"><b>TIEMPO DE GARANTÍA: <span id="cedula_id"></span></span></b></b>
+</div>
+      <br>
+      <br>
+  <div style="text-align: left; font-size: 10pt;">
+<b>*LEER EL INSTRUCTIVO INCLUIDO</b><br>
+<b>*AL PRIMER USO DEJAR CORRER AGUA FRÍA POR 10 SEGUNDOS ANTES DE ENCENDER EL BREAKER O CONECTAR LA ELECTRICIDAD.</b><br>
+<b>*NO DESPEGAR NINGUN SELLO DE SEGURIDAD</b><br>
+<b>*CONSERVAR LA FUNDA Y LOS PAPELES INCLUIDOS EN EL PRODUCTO</b><br>
+<b>*NO RETIRAR EL TAPÓN REDUCTOR (SI NO HAY SUFICIENTE PRESIÓN DE AGUA  ABRIRLO UN POCO, PERO NUNCA RETIRARLO)</b><br>
+<b>*SI SE DAÑA LA DUCHA, NO LA DESARME, NI INTENTE VER QUE SUCEDIÓ, SIMPLEMENTE RETIRELA Y HAGA EFECTIVA LA GARANTÍA</b><br>
+<b>*NO SE CUBREN DAÑOS POR DERRETEMIENTO DE ALGUNA PIEZA YA QUE ES CLARO QUE LA INSTALACIÓN ELÉCTRICA ESTÁ MAL</b><br>
+<b>*LA GARANTÍA SE APLICARÁ DE FORMA INMEDIATA SALVO QUE NO HAYA STOCK, ENTONCES SE DEBERÁ ESPERAR</b><br>
+<b>*LA GARANTÍA NO CUBRE DEVOLUCIÓN DE DINERO EN EFECTIVO, ÚNICAMENTE UN PRODUCTO NUEVO</b><br><b>*ESTE DOCUMENTO ES EL ÚNICO QUE PUEDE EFECTUAR LA GARANTÍA</b><br>
+<br>
+</div>
+<div style="text-align: center; font-size: 10pt;">
+<b>(EN CASO DE FALTAR A ALGUNA DE ESTAS CONDICIONES LA GARANTÍA NO PODRÁ HACERSE EFECTIVA)</b><br>
+<br>
+<br><b>SELLO:</b><br></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+   
+            <br/>
+            <br/>
+            <div
+            class="label">
+ <p class="vendedor"><b>ATENDIDO POR: <span id="vendedor_id"></span></b></p>
+    </div>
+    <script>
+        var ventaElement = document.getElementById("venta_id").textContent = venta;
+        var ventaElement = document.getElementById("nombre_id").textContent = nombre_cliente;
+        var ventaElement = document.getElementById("cedula_id").textContent = cedula_cliente;
+     
+
+        var vendedorElement = document.getElementById("vendedor_id").textContent = vendedor;
+       
+
+
+        var fechaElement = document.getElementById("fechaR").textContent = fecha;
+        var fecha_entregaElement = document.getElementById("hora").textContent = fecha_entrega;
+
+    </script>
