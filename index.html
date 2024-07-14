@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=80mm, initial-scale=1.0"> <!-- Cambiar el ancho de la vista para el papel de 58mm -->
     <title>RECIBO</title>
     <style>
-     body {
+        body {
             font-family: arial, Helvetica, sans-serif;
             margin: 0;
             font-size: 3mm;
@@ -14,11 +14,9 @@
         }
 
         #thermal-pos {
-           
             margin: none;
             max-width: 80mm;
             max-height: 100mm;
-            
         }
 
         .label {
@@ -27,28 +25,19 @@
         }
 
         .table {
-          
             border-collapse: collapse; /* Elimina el espacio entre celdas */
-            border-collapse: collapse;
             border-spacing: 0;
-            
         }
 
         .table-header h2 {
             margin: 0;
             padding-left: 0.5mm;
-            
         }
         .table-footer.top-line td,
-        
         .table-footer {
             margin-left: 0.5mm;
         }
-        .table-footer h2 {
-            margin: 0; /* Asegurarte de que no haya margen dentro de los elementos h2 */
-            padding: 1mm 0; /* Ajustar el padding superior e inferior */
-        }
-        .table-footer h4 {
+        .table-footer h2, .table-footer h4 {
             margin: 0; /* Asegurarte de que no haya margen dentro de los elementos h2 */
             padding: 1mm 0; /* Ajustar el padding superior e inferior */
         }
@@ -61,42 +50,61 @@
             margin-left: 0.5mm;
         }
 
-      /* Agrega el estilo para eliminar el espacio vertical en las celdas de las filas de la tabla */
-      .table-footer td {
-          padding: 0;
-          line-height: 1;
-      }
-      .venta {
-        margin: 0;
-        padding: 00;
-      }
-     .nombre_cliente {
-        margin: 0;
-        padding: 00;
-      }
-    .vendedor {
-        margin: 0;
-    }
-    .fecha_recepcion {
-        margin: 0;
-    }
-    
-    .info-tienda {
-        margin: 0;
-    }
-    .m-0 {
-        margin: 0;
-    }
-    .direccion {
-        margin: 0;
-        
-    }
-  
-
+        /* Agrega el estilo para eliminar el espacio vertical en las celdas de las filas de la tabla */
+        .table-footer td {
+            padding: 0;
+            line-height: 1;
+        }
+        .venta, .nombre_cliente, .vendedor, .fecha_recepcion, .info-tienda, .m-0, .direccion {
+            margin: 0;
+            padding: 0;
+        }
+        .table-item {
+            border-bottom: 0.5px dotted black;
+        }
+        .right-align {
+            text-align: right;
+        }
     </style>
-  </head>
-  <body onload="window.print()" onfocus="window.close()">
+</head>
+<body onload="window.print()" onfocus="window.close()">
 
+       <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #ffffff; /* Color de fondo del encabezado */
+            color: black; /* Color del texto en el encabezado */
+            padding: 10px; /* Espaciado interno del encabezado */
+            display: flex; /* Uso de flexbox para diseño flexible */
+            justify-content: space-between; /* Espacio entre los elementos flexibles */
+            align-items: center; /* Centrar verticalmente los elementos */
+        }
+
+        #logo {
+            width: 25%; /* Ancho del logo (1/4 del ancho) */
+            height: auto; /* Altura ajustada automáticamente */
+        }
+
+        #info {
+            width: 75%; /* Ancho del texto (3/4 del ancho) */
+            text-align: RIGHT; /* Alinear el texto a la izquierda */
+        }
+
+        .info-tienda {
+            margin: 0; /* Eliminar el margen predeterminado del párrafo */
+        }
+         .table-item {
+    border-bottom: 0.5px dotted black;
+      }
+      .right-align {
+    text-align: right;
+    }
+    </style>
     <script>
         // Obtener los parámetros de la URL
         const params = new URLSearchParams(window.location.search);
@@ -143,52 +151,11 @@
         });
     </script>
     <div id="thermal-pos">
-        <div class="label">
-             <title>Encabezado con Logo y Texto</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            background-color: #ffffff; /* Color de fondo del encabezado */
-            color: black; /* Color del texto en el encabezado */
-            padding: 10px; /* Espaciado interno del encabezado */
-            display: flex; /* Uso de flexbox para diseño flexible */
-            justify-content: space-between; /* Espacio entre los elementos flexibles */
-            align-items: center; /* Centrar verticalmente los elementos */
-        }
-
-        #logo {
-            width: 25%; /* Ancho del logo (1/4 del ancho) */
-            height: auto; /* Altura ajustada automáticamente */
-        }
-
-        #info {
-            width: 75%; /* Ancho del texto (3/4 del ancho) */
-            text-align: RIGHT; /* Alinear el texto a la izquierda */
-        }
-
-        .info-tienda {
-            margin: 0; /* Eliminar el margen predeterminado del párrafo */
-        }
-         .table-item {
-    border-bottom: 0.5px dotted black;
-      }
-      .right-align {
-    text-align: right;
-    }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div id="logo">
-            <!-- Aquí colocarías tu código SVG o una etiqueta img con la ruta del logo -->
-            <!-- Ejemplo con un SVG de ejemplo -->
-            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+        <header>
+            <div id="logo">
+                <!-- Aquí colocarías tu código SVG o una etiqueta img con la ruta del logo -->
+                <!-- Ejemplo con un SVG de ejemplo -->
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                 width="100%" viewBox="0 0 1028.000000 1004.000000" preserveAspectRatio="xMidYMid meet">
                 <<g transform="translate(0.000000,1004.000000) scale(0.0400000,-0.0400000)"
                 fill="#000000" stroke="none">
@@ -340,108 +307,99 @@ c-1 22 -9 90 -17 150 -8 61 -24 182 -35 270 -12 88 -27 205 -35 260 -8 55 -16
 l-6 -28 66 0 66 0 0 35 c0 19 -6 77 -14 128 -8 50 -19 138 -26 195 -7 56 -15
 102 -19 102 -4 0 -15 -57 -24 -127z"/>
             </svg>
-
-        </div>
-        <div id="info">
-            <!-- Aquí colocarías tu información en texto -->
-            <!-- Ejemplo de texto de información -->
-            <p class="info-tienda">
-               <b> FERRETERÍA MANA SAKILLA</b>
-                <br>
-                <b>RUC: 1727849695001</b>
-                <br>
-                <b>DIR: LUIS CORDERO Y JOSÉ MEJÍA</b>
-                <br>
-                <b>CEL: 0962248046</b>
-                <br>
-            </p>
-        </div>
-    </header>
-
-        </div>
+            </div>
+            <div id="info">
+                <p class="info-tienda">
+                    <b> FERRETERÍA MANA SAKILLA</b>
+                    <br>
+                    <b>RUC: 1727849695001</b>
+                    <br>
+                    <b>DIR: LUIS CORDERO Y JOSÉ MEJÍA</b>
+                    <br>
+                    <b>CEL: 0962248046</b>
+                    <br>
+                </p>
+            </div>
+        </header>
         <div class="label">
-    <p class="venta"><b>RECIBO: <span id="venta_id"></span></b></p>
-    <p class="fecha_recepcion"><b>DAT: <span id="fechaR"></span></b></p>
-    <br>
-    <br>
-    <b>DATOS DEL CLIENTE:</b>
-    <br>
-   <span class="nombre_cliente"><b>RAZÓN SOCIAL: </b><span id="nombre_id"></span></span><br>
-<span class="cedula_cliente"><b>CÉDULA/RUC: </b><span id="cedula_id"></span></span><br>
-<span class="direccion_cliente"><b>DIRECCIÓN: </b><span id="direccion_id"></span></span><br>
-<span class="telefono_cliente"><b>TELÉFONO: </b><span id="telefono_id"></span></span><br>
-
-
-</div>
-      <br>
-   
+            <p class="venta"><b>RECIBO: <span id="venta_id"></span></b></p>
+            <p class="fecha_recepcion"><b>DAT: <span id="fechaR"></span></b></p>
+            <br>
+            <br>
+            <b>DATOS DEL CLIENTE:</b>
+            <br>
+            <span class="nombre_cliente"><b>RAZÓN SOCIAL: </b><span id="nombre_id"></span></span><br>
+            <span class="cedula_cliente"><b>CÉDULA/RUC: </b><span id="cedula_id"></span></span><br>
+            <span class="direccion_cliente"><b>DIRECCIÓN: </b><span id="direccion_id"></span></span><br>
+            <span class="telefono_cliente"><b>TELÉFONO: </b><span id="telefono_id"></span></span><br>
+        </div>
+        <br>
         <table class="table">
             <tbody id="tablaBody">
-                <tr class="table-header" >
+                <tr class="table-header">
                     <th><h2>Cant</h2></th>
                     <th><h2>Descripcion</h2></th>
                     <th><h2>P. Unitario</h2></th>
                     <th><h2>P. Total</h2></th>
                 </tr>
                 <script>
-                    /*var result = [
-                        { cantidad: 3, descripcion: "hamburguesa doble carne", precio_unit: 10000 },
-                        { cantidad: 5, descripcion: "Perro mas gaseosa y de todo", precio_unit: 20000 },
-                        // ... otros objetos en el array
-                    ];*/
-
                     var tablaBody = document.getElementById("tablaBody");
 
                     result.forEach(function(row) {
-                    var newRow = document.createElement("tr");
-                    newRow.className = "table-item";
+                        var newRow = document.createElement("tr");
+                        newRow.className = "table-item";
 
-                    newRow.innerHTML = `
-                        <td class="item">${row.cantidad}</td>
-                        <td class="item">${row.descripcion}</td>
-                        <td class="item right-align">${row.precio_units}</td>
-                <td class="item right-align">${row.precio_totals}</td>
-                    `;
-                    tablaBody.appendChild(newRow);
+                        newRow.innerHTML = `
+                            <td class="item">${row.cantidad}</td>
+                            <td class="item">${row.descripcion}</td>
+                            <td class="item right-align">${row.precio_units}</td>
+                            <td class="item right-align">${row.precio_totals}</td>
+                        `;
+                        tablaBody.appendChild(newRow);
                     });
+
                     // Agrega una fila adicional con un espacio
                     var spaceRow = document.createElement("tr");
                     spaceRow.innerHTML = `<td colspan="3">&nbsp;</td>`;
                     tablaBody.appendChild(spaceRow);
-
                 </script>
-                
             </tbody>
         </table>
         <br/>
         <p class="saldo-text">
             <b><span class="estado-deuda" id="estado"></span></b>
         </p>
-        <div
-             class="label right-align">
+        <div class="label right-align">
             <p class="subtotal"><h3><b>SUBTOTAL: $ <span id="subtotal_id"></span></b></h2></p>
             <p class="descuento"><h3><b>DESCUENTO: $ <span id="descuento_id"></span></b></h2></p>
             <p class="total"><h2><b>TOTAL: $ <span id="total_id"></span></b></h2></p>
-            </div>
-            <br/>
-            <br/>
-            <div
-            class="label">
- <p class="vendedor"><b>ATENDIDO POR: <span id="vendedor_id"></span></b></p>
+        </div>
+        <br/>
+        <br/>
+        <div class="label">
+            <p class="vendedor"><b>ATENDIDO POR: <span id="vendedor_id"></span></b></p>
+        </div>
+        <!-- Agregar la imagen del código de barras -->
+        <div class="label">
+            <img id="barcode" alt="Código de Barras">
+        </div>
+        <script>
+            // Insertar los datos en el HTML
+            document.getElementById("venta_id").textContent = venta;
+            document.getElementById("nombre_id").textContent = nombre_cliente;
+            document.getElementById("cedula_id").textContent = cedula_cliente;
+            document.getElementById("direccion_id").textContent = direccion_cliente;
+            document.getElementById("telefono_id").textContent = telefono_cliente;
+            document.getElementById("subtotal_id").textContent = subtotal;
+            document.getElementById("descuento_id").textContent = descuento;
+            document.getElementById("vendedor_id").textContent = vendedor;
+            document.getElementById("total_id").textContent = total;
+            document.getElementById("fechaR").textContent = fecha;
+
+            // Generar el enlace del código de barras
+            var barcodeUrl = `https://barcode.tec-it.com/barcode.ashx?data=${venta}&code=Code128&imagetype=Png`;
+            document.getElementById("barcode").src = barcodeUrl;
+        </script>
     </div>
-    <script>
-        var ventaElement = document.getElementById("venta_id").textContent = venta;
-        var ventaElement = document.getElementById("nombre_id").textContent = nombre_cliente;
-        var ventaElement = document.getElementById("cedula_id").textContent = cedula_cliente;
-        var ventaElement = document.getElementById("direccion_id").textContent = direccion_cliente;
-        var ventaElement = document.getElementById("telefono_id").textContent = telefono_cliente;
-        var ventaElement = document.getElementById("subtotal_id").textContent = subtotal;
-        var ventaElement = document.getElementById("descuento_id").textContent = descuento;
-        var vendedorElement = document.getElementById("vendedor_id").textContent = vendedor;
-        var vendedorElement = document.getElementById("total_id").textContent = total;
-
-
-        var fechaElement = document.getElementById("fechaR").textContent = fecha;
-        var fecha_entregaElement = document.getElementById("hora").textContent = fecha_entrega;
-
-    </script>
+</body>
+</html>
